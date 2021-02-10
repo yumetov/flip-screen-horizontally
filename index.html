@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <title>mirror</title>
+    <style>
+      html,
+      body {
+        margin: 0px;
+        height: 100%;
+        background-color: black;
+      }
+      #video {
+        height: 100%;
+        transform: scaleX(-1);
+      }
+    </style>
+  </head>
+  <body>
+    <video id="video" autoplay=""></video>
+    <script>
+      navigator.mediaDevices.getDisplayMedia({ video: true }).then((stream) => {
+        const video = document.getElementById('video');
+        video.srcObject = stream;
+      });
+    </script>
+  </body>
+</html>
